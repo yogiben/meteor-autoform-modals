@@ -31,7 +31,7 @@ If ```operation="update``` or ```operation="remove"``` you also need to set the 
 
 ## Customisation ##
 It is possible to customise the modals by adding additional attributes to the ```href="#afModal"``` element that triggers the modal.
-+**title** will be the title of the modal (default to html of the button clicked)
-+**buttonContent** is the html content of the modals' button (default to html of the button clicked)
-+**omitFields** is a comma separated list of fields to omit. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
-+**buttonClasses** allows you to add different classes to the submit button. See the [autoform docs](https://github.com/aldeed/meteor-autoform)
+* ```title``` will be the title of the modal (default to html of the button clicked)
+* ```buttonContent``` is the html content of the modals' button (default to html of the button clicked)
+* ```omitFields``` is a comma separated list of fields to omit. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
+* ```buttonClasses``` allows you to add different classes to the submit button. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
