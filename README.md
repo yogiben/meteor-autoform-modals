@@ -1,6 +1,6 @@
 meteor-autoform-modals
 ======================
-
+```mrt add autoform-modals```
 Adds modals to insert/update/delete Meteor collections
 ##Examples##
 ### Insert Example ###
