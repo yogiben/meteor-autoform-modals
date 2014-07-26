@@ -1,5 +1,5 @@
 <template name="CollectionModals">
-	<div class="modal fade" id="collectionModal">
+	<div class="modal fade" id="afModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -11,7 +11,7 @@
 					{{#if $eq cmOperation 'remove'}}
 					<p>Are you sure you want to delete this?</p>
 					{{else}}
-					{{> quickForm id="cmForm" collection=cmCollection doc=cmDoc type=cmOperation buttonContent=cmButtonContent omitFields=cmOmitFields}}
+					{{> quickForm id="cmForm" collection=cmCollection doc=cmDoc type=cmOperation buttonContent=cmButtonContent omitFields=cmOmitFields buttonClasses=cmButtonClasses}}
 					{{/if}}
 					{{/if}}
 				</div>

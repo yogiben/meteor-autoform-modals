@@ -29,18 +29,23 @@ Template.CollectionModals.helpers
 		Session.get 'cmButtonContent'
 	cmTitle: () ->
 		Session.get 'cmTitle'
+	cmButtonClasses: () ->
+		Session.get 'cmButtonClasses'
 
 Template.CollectionModals.rendered = () ->
 	$('body').on "click", (e)->
-		if $(e.target).attr('href') == '#collectionModal'
-			$('#collectionModal').modal('show')
+		if $(e.target).attr('href') == '#afModal'
+			$('#afModal').modal('show')
 			collection = $(e.target).attr('collection')
 			operation = $(e.target).attr('operation')
 			_id = $(e.target).attr('doc')
 			omitFields = $(e.target).attr('omitFields')
+			buttonClasses = $(e.target).attr('buttonClasses')
 			html = $(e.target).html()
 			title = html
 			buttonContent = html
+
+			console.log(buttonClasses)
 
 			if $(e.target).attr('title')
 				title = $(e.target).attr('title')
@@ -51,7 +56,6 @@ Template.CollectionModals.rendered = () ->
 			if _id
 				doc = window[collection].findOne _id:_id
 
-
 			Session.set('cmCollection',collection)
 			Session.set('cmOperation',operation)
 			Session.set('cmDoc',doc)
@@ -59,11 +63,12 @@ Template.CollectionModals.rendered = () ->
 			Session.set('cmOmitFields',omitFields)
 			Session.set('cmTitle',title)
 			Session.set('cmButtonContent',buttonContent)
+			Session.set('cmButtonClasses',buttonClasses)
 
 Template.CollectionModals.destroyed = -> $('body').unbind 'click'
 
 AutoForm.hooks(
 	cmForm : 
 		onSuccess: (operation, result, template)->
-			$('#collectionModal').modal('hide')
+			$('#afModal').modal('hide')
 		)
