@@ -2,15 +2,11 @@
   "dependencies": [
     [
       "aldeed:autoform",
-      "0.17.1"
+      "2.0.2"
     ],
     [
       "aldeed:simple-schema",
-      "0.7.0"
-    ],
-    [
-      "base64",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "blaze",
@@ -34,14 +30,10 @@
     ],
     [
       "ejson",
-      "1.0.2"
-    ],
-    [
-      "geojson-utils",
       "1.0.0"
     ],
     [
-      "handlebars",
+      "geojson-utils",
       "1.0.0"
     ],
     [
@@ -134,6 +126,6 @@
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@1.0.30",
+  "toolVersion": "meteor-tool@1.0.32",
   "format": "1.0"
 }
