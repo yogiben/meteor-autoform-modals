@@ -1,8 +1,12 @@
 meteor-autoform-modals
 ======================
-```mrt add autoform-modals```
+```meteor add yogiben:autoform-modals```
 
-Adds modals to insert/update/delete Meteor collections
+Adds modals to insert/update/delete Meteor collections.
+
+1. Include the template in the layouts you need the modals `{{> collectionModals}}`
+2. Add a button to trigger the modal
+
 ##Examples##
 ### Insert Example ###
 ```
