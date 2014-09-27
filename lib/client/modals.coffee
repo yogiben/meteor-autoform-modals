@@ -33,6 +33,8 @@ Template.collectionModals.helpers
 		Session.get 'cmButtonClasses'
 
 Template.collectionModals.destroyed = -> $('body').unbind 'click'
+
+Template.CollectionModals.rendered = () ->
 	$('body').on "click", (e)->
 		if $(e.target).attr('href') == '#afModal'
 			$('#afModal').modal('show')
