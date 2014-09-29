@@ -4,7 +4,7 @@ meteor-autoform-modals
 
 Adds modals to insert/update/delete Meteor collections.
 
-1. Include the template in the layouts you need the modals `{{> collectionModals}}`
+1. Include the template in the layouts you need the modals `{{> autoformModals}}`
 2. Add a button to trigger the modal
 
 ##Examples##

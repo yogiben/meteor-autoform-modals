@@ -14,7 +14,7 @@
 # 		Session.set('cmButtonHtml',html)
 # 		Session.set('cmOmitFields',omitFields)
 
-Template.collectionModals.helpers
+Template.autoformModals.helpers
 	cmCollection: () ->
 		Session.get 'cmCollection'
 	cmOperation: () ->
@@ -32,9 +32,9 @@ Template.collectionModals.helpers
 	cmButtonClasses: () ->
 		Session.get 'cmButtonClasses'
 
-Template.collectionModals.destroyed = -> $('body').unbind 'click'
+Template.autoformModals.destroyed = -> $('body').unbind 'click'
 
-Template.CollectionModals.rendered = () ->
+Template.autoformModals.rendered = () ->
 	$('body').on "click", (e)->
 		if $(e.target).attr('href') == '#afModal'
 			$('#afModal').modal('show')
