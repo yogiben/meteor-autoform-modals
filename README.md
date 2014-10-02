@@ -10,22 +10,22 @@ Adds modals to insert/update/delete Meteor collections.
 ##Examples##
 ### Insert Example ###
 ```
-<a href="#afModal" class="btn btn-primary" collection="Posts" operation="insert" doc="mpb8f7m6x929DwTau">Add a new post</a>
+<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="insert" doc="mpb8f7m6x929DwTau">Add a new post</a>
 ```
 ### Update Example ###
 ```
-<a href="#afModal" class="btn btn-primary" collection="Posts" operation="update" doc="mpb8f7m6x929DwTau">Update post</a>
+<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="update" doc="mpb8f7m6x929DwTau">Update post</a>
 ```
 ### Remove Example ###
 ```
-<a href="#afModal" class="btn btn-danger" collection="Posts" operation="remove" doc="mpb8f7m6x929DwTau">Delete post</a>
+<a href="#afModal" data-toggle="modal" class="btn btn-danger" collection="Posts" operation="remove" doc="mpb8f7m6x929DwTau">Delete post</a>
 ```
 ### Example with customisation ###
 ```
-<a href="#afModal" class="btn btn-primary" collection="Posts" omitFields="createdAt,owner,upvotes" operation="insert" buttonContent="New Challenger" title="Add a new public post" buttonClass="btn-success">Create a new challenger</a>
+<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" omitFields="createdAt,owner,upvotes" operation="insert" buttonContent="New Challenger" title="Add a new public post" buttonClass="btn-success">Create a new challenger</a>
 ```
 ##Usage##
-Elements with ```href="#afModal"``` will trigger the modal.
+Elements with `href="#afModal"` and `data-toggle="modal"` will trigger the modal.
 The required attributes on this element are ``collection`` & ``operation``.
 
 Collection should be the name of the global collection object e.g. Posts.

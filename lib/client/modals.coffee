@@ -37,7 +37,6 @@ Template.autoformModals.destroyed = -> $('body').unbind 'click'
 Template.autoformModals.rendered = () ->
 	$('body').on "click", (e)->
 		if $(e.target).attr('href') == '#afModal'
-			$('#afModal').modal('show')
 			collection = $(e.target).attr('collection')
 			operation = $(e.target).attr('operation')
 			_id = $(e.target).attr('doc')

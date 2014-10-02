@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Create, update and delete collections with modals",
-  version: "0.1.3",
+  version: "0.1.5",
   git: "https://github.com/yogiben/meteor-autoform-modals"
 });
 
