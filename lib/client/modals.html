@@ -8,19 +8,20 @@
 				</div>
 				<div class="modal-body">
 					{{#if $and cmCollection cmOperation}}
-					{{#if $eq cmOperation 'remove'}}
-					<p>Are you sure you want to delete this?</p>
-					{{else}}
-					{{> quickForm id="cmForm" collection=cmCollection doc=cmDoc type=cmOperation buttonContent=cmButtonContent omitFields=cmOmitFields buttonClasses=cmButtonClasses}}
+					<p>{{cmPrompt}}</p>
+					{{#if $neq cmOperation 'remove'}}
+					{{> quickForm title="Update your post" id="cmForm" collection=cmCollection doc=cmDoc type=cmOperation buttonContent=cmButtonContent omitFields=cmOmitFields buttonClasses=cmButtonClasses}}
 					{{/if}}
 					{{/if}}
 				</div>
 				{{#if $eq cmOperation 'remove'}}
 				<div class="modal-footer">
-					{{> afDeleteButton id="cmForm" collection=cmCollection doc=cmDoc}}
+					<button class="{{cmButtonClasses}}">{{{cmButtonContent}}}</button>
 				</div>
 				{{/if}}
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+			</div>
+		</div>
+	</div>
 </template>
+
+

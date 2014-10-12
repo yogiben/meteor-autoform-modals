@@ -14,6 +14,16 @@
 # 		Session.set('cmButtonHtml',html)
 # 		Session.set('cmOmitFields',omitFields)
 
+Template.autoformModals.events
+	'click button': () ->
+		collection = Session.get 'cmCollection'
+		_id = Session.get('cmDoc')._id
+		window[collection].remove _id, (e)->
+			if e
+				alert 'Sorry, this could not be deleted.'
+			else
+				$('#afModal').modal('hide')
+
 Template.autoformModals.helpers
 	cmCollection: () ->
 		Session.get 'cmCollection'
@@ -31,6 +41,8 @@ Template.autoformModals.helpers
 		Session.get 'cmTitle'
 	cmButtonClasses: () ->
 		Session.get 'cmButtonClasses'
+	cmPrompt: () ->
+		Session.get 'cmPrompt'
 
 Template.autoformModals.destroyed = -> $('body').unbind 'click'
 
@@ -41,18 +53,35 @@ Template.autoformModals.rendered = () ->
 			operation = $(e.target).attr('operation')
 			_id = $(e.target).attr('doc')
 			omitFields = $(e.target).attr('omitFields')
-			buttonClasses = $(e.target).attr('buttonClasses')
 			html = $(e.target).html()
-			title = html
-			buttonContent = html
 
-			console.log(buttonClasses)
+
+			if $(e.target).attr('buttonClasses')
+				buttonClasses = $(e.target).attr('buttonClasses')
+			else if operation == 'remove'
+				buttonClasses = 'btn btn-danger'
+			else
+				buttonClasses = 'btn btn-primary'
+
 
 			if $(e.target).attr('title')
 				title = $(e.target).attr('title')
+			else
+				title = html
 
 			if $(e.target).attr('buttonContent')
 				buttonContent = $(e.target).attr('buttonContent')
+			else if operation == 'insert'
+				buttonContent = 'Create'
+			else if operation == 'update'
+				buttonContent = 'Update'
+			else if operation == 'remove'
+				buttonContent = 'Delete'
+
+			if $(e.target).attr('prompt')
+				prompt = $(e.target).attr('prompt')
+			else
+				prompt = ''
 
 			if _id
 				doc = window[collection].findOne _id:_id
@@ -65,6 +94,7 @@ Template.autoformModals.rendered = () ->
 			Session.set('cmTitle',title)
 			Session.set('cmButtonContent',buttonContent)
 			Session.set('cmButtonClasses',buttonClasses)
+			Session.set('cmPrompt',prompt)
 
 AutoForm.hooks(
 	cmForm : 
