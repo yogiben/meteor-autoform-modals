@@ -80,6 +80,8 @@ Template.autoformModals.rendered = () ->
 
 			if $(e.target).attr('prompt')
 				prompt = $(e.target).attr('prompt')
+			else if operation == 'remove'
+				prompt = 'Are you sure?'
 			else
 				prompt = ''
 
