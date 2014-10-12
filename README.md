@@ -1,23 +1,25 @@
-meteor-autoform-modals
+Meteor [Autoform](https://github.com/aldeed/meteor-autoform) Modals
 ======================
-```meteor add yogiben:autoform-modals```
 
-Adds modals to insert/update/delete Meteor collections.
+Adds bootstrap modals to insert/update/remove docs from Meteor collections.
 
-1. Include the template in the layouts you need the modals `{{> autoformModals}}`
-2. Add a button to trigger the modal
+## Setup ##
+
+1. ```meteor add yogiben:autoform-modals```
+2. Include the template in the layouts that will use the modals `{{> autoformModals}}`
+3. Add a button to trigger the modal
 
 
 ![alt tag](https://raw.githubusercontent.com/yogiben/meteor-autoform-modals/master/readme/1.png)
 
-##Examples##
+##Example Button Markup##
 ### Insert Example ###
 ```
 <a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="insert" doc="mpb8f7m6x929DwTau">Add a new post</a>
 ```
 ### Update Example ###
 ```
-<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="update" doc="mpb8f7m6x929DwTau">Update post</a>
+<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="update" doc="{{_id}}">Update post</a>
 ```
 ### Remove Example ###
 ```
@@ -25,7 +27,7 @@ Adds modals to insert/update/delete Meteor collections.
 ```
 ### Example with customisation ###
 ```
-<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" omitFields="createdAt,owner,upvotes" operation="insert" buttonContent="New Challenger" title="Add a new public post" buttonClass="btn-success">Create a new challenger</a>
+<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" omitFields="createdAt,owner,upvotes" operation="update" buttonContent="Update Challenger" prompt="Use this form to update your doc" title="Update your great content" buttonClasses="btn-success">Update your post</a>
 ```
 ##Usage##
 Elements with `href="#afModal"` and `data-toggle="modal"` will trigger the modal.
@@ -43,3 +45,4 @@ It is possible to customise the modals by adding additional attributes to the ``
 * ```buttonContent``` is the html content of the modals' button (default to html of the button clicked)
 * ```omitFields``` is a comma separated list of fields to omit. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
 * ```buttonClasses``` allows you to add different classes to the submit button. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
+* ```prompt``` a paragraph appears above the form / delete button. Defaults to 'Are you sure?' on delete.
