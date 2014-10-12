@@ -33,6 +33,8 @@ Template.autoformModals.helpers
 		Session.get 'cmDoc'
 	cmButtonHtml: () ->
 		Session.get 'cmButtonHtml'
+	cmFields: () ->
+		Session.get 'cmFields'
 	cmOmitFields: () ->
 		Session.get 'cmOmitFields'
 	cmButtonContent: () ->
@@ -52,8 +54,17 @@ Template.autoformModals.rendered = () ->
 			collection = $(e.target).attr('collection')
 			operation = $(e.target).attr('operation')
 			_id = $(e.target).attr('doc')
-			omitFields = $(e.target).attr('omitFields')
 			html = $(e.target).html()
+
+			if $(e.target).attr('fields')
+				fields = $(e.target).attr('fields')
+			else
+				omitFields = null
+
+			if $(e.target).attr('omitFields')
+				omitFields = $(e.target).attr('omitFields')
+			else
+				omitFields = null
 
 
 			if $(e.target).attr('buttonClasses')
@@ -92,6 +103,7 @@ Template.autoformModals.rendered = () ->
 			Session.set('cmOperation',operation)
 			Session.set('cmDoc',doc)
 			Session.set('cmButtonHtml',html)
+			Session.set('cmFields',fields)
 			Session.set('cmOmitFields',omitFields)
 			Session.set('cmTitle',title)
 			Session.set('cmButtonContent',buttonContent)
