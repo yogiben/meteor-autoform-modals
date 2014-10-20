@@ -20,7 +20,7 @@ Template.autoformModals.events
 		_id = Session.get('cmDoc')._id
 		operation = Session.get 'cmOperation'
 		
-		if operation == 'remove
+		if operation == 'remove'
 			window[collection].remove _id, (e)->
 				if e
 					alert 'Sorry, this could not be deleted.'
