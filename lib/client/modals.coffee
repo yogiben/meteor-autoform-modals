@@ -15,7 +15,7 @@
 # 		Session.set('cmOmitFields',omitFields)
 
 Template.autoformModals.events
-	'click button': () ->
+	'click button:not(.close)': () ->
 		collection = Session.get 'cmCollection'
 		_id = Session.get('cmDoc')._id
 		window[collection].remove _id, (e)->
