@@ -18,11 +18,14 @@ Template.autoformModals.events
 	'click button:not(.close)': () ->
 		collection = Session.get 'cmCollection'
 		_id = Session.get('cmDoc')._id
-		window[collection].remove _id, (e)->
-			if e
-				alert 'Sorry, this could not be deleted.'
-			else
-				$('#afModal').modal('hide')
+		operation = Session.get 'cmOperation'
+		
+		if operation == 'remove
+			window[collection].remove _id, (e)->
+				if e
+					alert 'Sorry, this could not be deleted.'
+				else
+					$('#afModal').modal('hide')
 
 Template.autoformModals.helpers
 	cmCollection: () ->
