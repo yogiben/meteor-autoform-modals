@@ -15,7 +15,7 @@ Adds bootstrap modals to insert/update/remove docs from Meteor collections.
 ##Example Button Markup##
 ### Insert Example ###
 ```
-<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="insert" doc="mpb8f7m6x929DwTau">Add a new post</a>
+<a href="#afModal" data-toggle="modal" class="btn btn-primary" collection="Posts" operation="insert">Add a new post</a>
 ```
 ### Update Example ###
 ```
