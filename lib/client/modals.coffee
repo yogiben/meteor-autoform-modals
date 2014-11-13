@@ -19,7 +19,7 @@ Template.autoformModals.events
 		collection = Session.get 'cmCollection'
 		operation = Session.get 'cmOperation'
 		
-		if operation !== 'insert'
+		if operation != 'insert'
 			_id = Session.get('cmDoc')._id
 			
 		if operation == 'remove'
