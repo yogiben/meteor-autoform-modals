@@ -53,67 +53,44 @@ Template.autoformModals.helpers
 
 Template.autoformModals.destroyed = -> $('body').unbind 'click'
 
-Template.autoformModals.rendered = () ->
-	$('body').on "click", (e)->
-		if $(e.target).attr('href') == '#afModal'
-			collection = $(e.target).attr('collection')
-			operation = $(e.target).attr('operation')
-			_id = $(e.target).attr('doc')
-			html = $(e.target).html()
+Template.afModal.events
+	'click *': (e, t) ->
+		e.preventDefault()
 
-			if $(e.target).attr('fields')
-				fields = $(e.target).attr('fields')
-			else
-				omitFields = null
+		html = t.$('*').html()
 
-			if $(e.target).attr('omitFields')
-				omitFields = $(e.target).attr('omitFields')
-			else
-				omitFields = null
+		Session.set 'cmCollection', t.data.collection
+		Session.set 'cmOperation', t.data.operation
+		Session.set 'cmFields', t.data.fields
+		Session.set 'cmOmitFields', t.data.omitFields
+		Session.set 'cmButtonHtml', html
+		Session.set 'cmTitle', t.data.title or html
 
+		if t.data.doc
+			Session.set 'cmDoc', window[t.data.collection].findOne _id: t.data.doc
 
-			if $(e.target).attr('buttonClasses')
-				buttonClasses = $(e.target).attr('buttonClasses')
-			else if operation == 'remove'
-				buttonClasses = 'btn btn-danger'
-			else
-				buttonClasses = 'btn btn-primary'
+		if t.data.buttonContent
+			Session.set 'cmButtonContent', t.data.buttonContent
+		else if t.data.operation == 'insert'
+			Session.set 'cmButtonContent', 'Create'
+		else if t.data.operation == 'update'
+			Session.set 'cmButtonContent', 'Update'
+		else if t.data.operation == 'remove'
+			Session.set 'cmButtonContent', 'Delete'
 
+		if t.data.buttonClasses
+			Session.set 'cmButtonClasses', t.data.buttonClasses
+		else if t.data.operation == 'remove'
+			Session.set 'cmButtonClasses', 'btn btn-danger'
+		else
+			Session.set 'cmButtonClasses', 'btn btn-primary'
 
-			if $(e.target).attr('title')
-				title = $(e.target).attr('title')
-			else
-				title = html
-
-			if $(e.target).attr('buttonContent')
-				buttonContent = $(e.target).attr('buttonContent')
-			else if operation == 'insert'
-				buttonContent = 'Create'
-			else if operation == 'update'
-				buttonContent = 'Update'
-			else if operation == 'remove'
-				buttonContent = 'Delete'
-
-			if $(e.target).attr('prompt')
-				prompt = $(e.target).attr('prompt')
-			else if operation == 'remove'
-				prompt = 'Are you sure?'
-			else
-				prompt = ''
-
-			if _id
-				doc = window[collection].findOne _id:_id
-
-			Session.set('cmCollection',collection)
-			Session.set('cmOperation',operation)
-			Session.set('cmDoc',doc)
-			Session.set('cmButtonHtml',html)
-			Session.set('cmFields',fields)
-			Session.set('cmOmitFields',omitFields)
-			Session.set('cmTitle',title)
-			Session.set('cmButtonContent',buttonContent)
-			Session.set('cmButtonClasses',buttonClasses)
-			Session.set('cmPrompt',prompt)
+		if t.data.prompt
+			Session.set 'cmPrompt', t.data.prompt
+		else if t.data.operation == 'remove'
+			Session.set 'cmPrompt', 'Are you sure?'
+		else
+			Session.set 'cmPrompt', ''
 
 AutoForm.hooks(
 	cmForm : 

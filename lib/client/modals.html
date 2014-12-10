@@ -24,4 +24,8 @@
 	</div>
 </template>
 
-
+<template name="afModal">
+	<a href="#afModal" class="{{class}}" data-toggle="modal" collection="{{collection}}" operation="{{operation}}">
+		{{> UI.contentBlock}}
+	</a>
+</template>
