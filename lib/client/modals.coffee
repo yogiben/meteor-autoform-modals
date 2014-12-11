@@ -14,6 +14,11 @@
 # 		Session.set('cmButtonHtml',html)
 # 		Session.set('cmOmitFields',omitFields)
 
+collectionObj = (name) ->
+	name.split('.').reduce (o, x) ->
+		o[x]
+	, window
+
 Template.autoformModals.events
 	'click button:not(.close)': () ->
 		collection = Session.get 'cmCollection'
@@ -23,7 +28,7 @@ Template.autoformModals.events
 			_id = Session.get('cmDoc')._id
 			
 		if operation == 'remove'
-			window[collection].remove _id, (e)->
+			collectionObj(collection).remove _id, (e)->
 				if e
 					alert 'Sorry, this could not be deleted.'
 				else
@@ -67,7 +72,7 @@ Template.afModal.events
 		Session.set 'cmTitle', t.data.title or html
 
 		if t.data.doc
-			Session.set 'cmDoc', window[t.data.collection].findOne _id: t.data.doc
+			Session.set 'cmDoc', collectionObj(t.data.collection).findOne _id: t.data.doc
 
 		if t.data.buttonContent
 			Session.set 'cmButtonContent', t.data.buttonContent
