@@ -21,13 +21,19 @@ Adds bootstrap modals to insert/update/remove docs from Meteor collections.
 ```
 ### Update Example ###
 ```
-{{#afModal class="btn btn-primary" collection="Posts" operation="update" doc="{{_id}}"}}
+{{#afModal class="btn btn-primary" collection="Posts" operation="update" doc=_id}}
   Update post
 {{/afModal}}
 ```
 ### Remove Example ###
 ```
 {{#afModal class="btn btn-danger" collection="Posts" operation="remove" doc="mpb8f7m6x929DwTau"}}
+  Delete post
+{{/afModal}}
+```
+or
+```
+{{#afModal class="btn btn-danger" collection="Posts" operation="remove" doc=_id}}
   Delete post
 {{/afModal}}
 ```
