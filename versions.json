@@ -17,6 +17,10 @@
       "2.0.3"
     ],
     [
+      "blaze-tools",
+      "1.0.1"
+    ],
+    [
       "check",
       "1.0.2"
     ],
@@ -39,6 +43,10 @@
     [
       "geojson-utils",
       "1.0.1"
+    ],
+    [
+      "html-tools",
+      "1.0.2"
     ],
     [
       "htmljs",
@@ -77,6 +85,10 @@
       "1.0.5"
     ],
     [
+      "mpowaga:string-template",
+      "0.1.0"
+    ],
+    [
       "mrt:moment",
       "2.8.1"
     ],
@@ -111,6 +123,10 @@
     [
       "session",
       "1.0.4"
+    ],
+    [
+      "spacebars-compiler",
+      "1.0.3"
     ],
     [
       "templating",
