@@ -16,8 +16,8 @@ api.versionsFrom('METEOR@1.0');
  	'session',
  	'coffeescript',
  	'ui',
- 	'aldeed:autoform@4.0.2',
- 	'raix:handlebar-helpers@0.1.2',
+ 	'aldeed:autoform@4.2.2',
+ 	'raix:handlebar-helpers@0.2.4',
  	'mpowaga:string-template@0.1.0'
  ], 'client');
  
