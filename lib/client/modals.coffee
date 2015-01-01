@@ -19,6 +19,22 @@ collectionObj = (name) ->
 		o[x]
 	, window
 
+Template.autoformModals.rendered = ->
+	$('#afModal').on 'hidden.bs.modal', ->
+		sessionKeys = [
+			'cmCollection',
+			'cmOperation',
+			'cmDoc',
+			'cmButtonHtml',
+			'cmFields',
+			'cmOmitFields',
+			'cmButtonContent',
+			'cmTitle',
+			'cmButtonClasses',
+			'cmPrompt'
+		]
+		delete Session.keys[key] for key in sessionKeys
+
 Template.autoformModals.events
 	'click button:not(.close)': () ->
 		collection = Session.get 'cmCollection'
