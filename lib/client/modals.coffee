@@ -50,7 +50,7 @@ Template.autoformModals.events
 				else
 					$('#afModal').modal('hide')
 
-Template.autoformModals.helpers
+helpers =
 	cmCollection: () ->
 		Session.get 'cmCollection'
 	cmOperation: () ->
@@ -71,6 +71,14 @@ Template.autoformModals.helpers
 		Session.get 'cmButtonClasses'
 	cmPrompt: () ->
 		Session.get 'cmPrompt'
+	title: () ->
+		StringTemplate.compile '{{cmTitle}}', helpers
+	prompt: () ->
+		StringTemplate.compile '{{cmPrompt}}', helpers
+	buttonContent: () ->
+		StringTemplate.compile '{{cmButtonContent}}', helpers
+
+Template.autoformModals.helpers helpers
 
 Template.autoformModals.destroyed = -> $('body').unbind 'click'
 

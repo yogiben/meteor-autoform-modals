@@ -4,11 +4,11 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">{{#with cmDoc}} {{{compileString cmTitle}}} {{/with}}</h4>
+					<h4 class="modal-title">{{{title}}}</h4>
 				</div>
 				<div class="modal-body">
 					{{#if $and cmCollection cmOperation}}
-					<p>{{#with cmDoc}} {{{compileString cmPrompt}}} {{/with}}</p>
+					<p>{{{prompt}}}</p>
 					{{#if $neq cmOperation 'remove'}}
 					{{> quickForm title=cmTitle id="cmForm" collection=cmCollection doc=cmDoc type=cmOperation buttonContent=cmButtonContent fields=cmFields omitFields=cmOmitFields buttonClasses=cmButtonClasses}}
 					{{/if}}
@@ -16,7 +16,7 @@
 				</div>
 				{{#if $eq cmOperation 'remove'}}
 				<div class="modal-footer">
-					<button class="{{cmButtonClasses}}">{{#with cmDoc}} {{{compileString cmButtonContent}}} {{/with}}</button>
+					<button class="{{cmButtonClasses}}">{{{buttonContent}}}</button>
 				</div>
 				{{/if}}
 			</div>
