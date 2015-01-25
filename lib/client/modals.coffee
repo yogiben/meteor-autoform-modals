@@ -72,11 +72,11 @@ helpers =
 	cmPrompt: () ->
 		Session.get 'cmPrompt'
 	title: () ->
-		StringTemplate.compile '{{cmTitle}}', helpers
+		StringTemplate.compile '{{{cmTitle}}}', helpers
 	prompt: () ->
-		StringTemplate.compile '{{cmPrompt}}', helpers
+		StringTemplate.compile '{{{cmPrompt}}}', helpers
 	buttonContent: () ->
-		StringTemplate.compile '{{cmButtonContent}}', helpers
+		StringTemplate.compile '{{{cmButtonContent}}}', helpers
 
 Template.autoformModals.helpers helpers
 
