@@ -55,3 +55,13 @@ It is possible to customise the modals by adding additional attributes to the `a
 * ```omitFields``` is a comma separated list of fields to omit. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
 * ```buttonClasses``` allows you to add different classes to the submit button. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
 * ```prompt``` a paragraph appears above the form / delete button. Defaults to 'Are you sure?' on delete.
+* ```template``` any template string that autoform accepts. See the [autoform docs](https://github.com/aldeed/meteor-autoform#theme-templates)
+* ```labelClass``` defines a bootstrap class for use when the horizontal class is used, how many columns should the label take? For example:
+```
+labelClass='col-sm-3'
+```
+* ```inputColClass``` defines a bootstrap class for use when the horizontal class is used, how many columns should the input take? For example:
+```
+inputColClass='col-sm-9'
+```
+* ```placeholder``` set to true if you wish to use the schema label for the input placeholder.
