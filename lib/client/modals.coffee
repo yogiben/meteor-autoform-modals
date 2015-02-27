@@ -14,6 +14,12 @@
 # 		Session.set('cmButtonHtml',html)
 # 		Session.set('cmOmitFields',omitFields)
 
+registeredAutoFormHooks = ['cmForm']
+
+AutoForm.addHooks 'cmForm',
+	onSuccess: ->
+		$('#afModal').modal('hide')
+
 collectionObj = (name) ->
 	name.split('.').reduce (o, x) ->
 		o[x]
@@ -83,6 +89,8 @@ helpers =
 		Session.get 'cmInputColClass'
 	cmPlaceholder: () ->
 		Session.get 'cmPlaceholder'
+	cmFormId: () ->
+		Session.get('cmFormId') or 'cmForm'
 	title: () ->
 		StringTemplate.compile '{{{cmTitle}}}', helpers
 	prompt: () ->
@@ -110,6 +118,13 @@ Template.afModal.events
 		Session.set 'cmLabelClass', t.data.labelClass
 		Session.set 'cmInputColClass', t.data.inputColClass
 		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
+		Session.set 'cmFormId', t.data.formId
+
+		if not _.contains registeredAutoFormHooks, t.data.formId
+			AutoForm.addHooks t.data.formId,
+				onSuccess: ->
+					$('#afModal').modal 'hide'
+			registeredAutoFormHooks.push t.data.formId
 
 		if t.data.doc
 			Session.set 'cmDoc', collectionObj(t.data.collection).findOne _id: t.data.doc
@@ -136,9 +151,3 @@ Template.afModal.events
 			Session.set 'cmPrompt', 'Are you sure?'
 		else
 			Session.set 'cmPrompt', ''
-
-AutoForm.hooks(
-	cmForm : 
-		onSuccess: (operation, result, template)->
-			$('#afModal').modal('hide')
-		)
