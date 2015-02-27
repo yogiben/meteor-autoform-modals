@@ -31,7 +31,11 @@ Template.autoformModals.rendered = ->
 			'cmButtonContent',
 			'cmTitle',
 			'cmButtonClasses',
-			'cmPrompt'
+			'cmPrompt',
+			'cmTemplate',
+			'cmLabelClass',
+			'cmInputColClass',
+			'cmPlaceholder'
 		]
 		delete Session.keys[key] for key in sessionKeys
 
@@ -71,6 +75,14 @@ helpers =
 		Session.get 'cmButtonClasses'
 	cmPrompt: () ->
 		Session.get 'cmPrompt'
+	cmTemplate: () ->
+		Session.get 'cmTemplate'
+	cmLabelClass: () ->
+		Session.get 'cmLabelClass'
+	cmInputColClass: () ->
+		Session.get 'cmInputColClass'
+	cmPlaceholder: () ->
+		Session.get 'cmPlaceholder'
 	title: () ->
 		StringTemplate.compile '{{{cmTitle}}}', helpers
 	prompt: () ->
@@ -94,6 +106,10 @@ Template.afModal.events
 		Session.set 'cmOmitFields', t.data.omitFields
 		Session.set 'cmButtonHtml', html
 		Session.set 'cmTitle', t.data.title or html
+		Session.set 'cmTemplate', t.data.template
+		Session.set 'cmLabelClass', t.data.labelClass
+		Session.set 'cmInputColClass', t.data.inputColClass
+		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
 
 		if t.data.doc
 			Session.set 'cmDoc', collectionObj(t.data.collection).findOne _id: t.data.doc
