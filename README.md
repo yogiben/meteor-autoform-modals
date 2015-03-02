@@ -66,3 +66,6 @@ inputColClass='col-sm-9'
 ```
 * ```placeholder``` set to true if you wish to use the schema label for the input placeholder.
 * ```formId``` defines id of the `quickForm` template. Useful when you want to set your custom autoform hooks.
+
+## Callbacks/Hooks ##
+It's possible to add your own autoform [callbacks/hooks](https://github.com/aldeed/meteor-autoform#callbackshooks) by setting the `formId`.
