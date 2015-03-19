@@ -41,7 +41,8 @@ Template.autoformModals.rendered = ->
 			'cmTemplate',
 			'cmLabelClass',
 			'cmInputColClass',
-			'cmPlaceholder'
+			'cmPlaceholder',
+ 			'cmSchema'
 		]
 		delete Session.keys[key] for key in sessionKeys
 
@@ -61,6 +62,8 @@ Template.autoformModals.events
 					$('#afModal').modal('hide')
 
 helpers =
+	cmSchema: () ->
+		Session.get 'cmSchema'
 	cmCollection: () ->
 		Session.get 'cmCollection'
 	cmOperation: () ->
@@ -108,6 +111,7 @@ Template.afModal.events
 
 		html = t.$('*').html()
 
+		Session.set 'cmSchema', t.data.schema
 		Session.set 'cmCollection', t.data.collection
 		Session.set 'cmOperation', t.data.operation
 		Session.set 'cmFields', t.data.fields
