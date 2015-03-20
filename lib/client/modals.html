@@ -3,21 +3,28 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true">&times;
+          </button>
 					<h4 class="modal-title">{{{title}}}</h4>
 				</div>
+
 				<div class="modal-body">
 					{{#if $and cmCollection cmOperation}}
-					<p>{{{prompt}}}</p>
-					{{#if $neq cmOperation 'remove'}}
-					{{> quickForm title=cmTitle id=cmFormId collection=cmCollection doc=cmDoc type=cmOperation buttonContent=cmButtonContent fields=cmFields omitFields=cmOmitFields template=cmTemplate label-class=cmLabelClass input-col-class=cmInputColClass buttonClasses=cmButtonClasses afFieldInput-placeholder=cmPlaceholder}}
-					{{/if}}
+            <p>{{{prompt}}}</p>
+
+            {{#if $neq cmOperation 'remove'}}
+              {{> quickForm attributes}}
+            {{/if}}
 					{{/if}}
 				</div>
 				{{#if $eq cmOperation 'remove'}}
-				<div class="modal-footer">
-					<button class="{{cmButtonClasses}}">{{{buttonContent}}}</button>
-				</div>
+          <div class="modal-footer">
+            <button class="{{cmButtonClasses}}">{{{buttonContent}}}</button>
+          </div>
 				{{/if}}
 			</div>
 		</div>
