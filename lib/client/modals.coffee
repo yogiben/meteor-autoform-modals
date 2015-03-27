@@ -26,6 +26,8 @@ collectionObj = (name) ->
 	, window
 
 Template.autoformModals.rendered = ->
+	$('#afModal').modal(show: false)
+
 	onEscKey = (e) ->
 		if e.keyCode == 27
 			$('#afModal').modal 'hide'
@@ -35,7 +37,7 @@ Template.autoformModals.rendered = ->
 
 	$('#afModal').on 'hidden.bs.modal', ->
 		$(window).unbind 'keyup', onEscKey
-		
+
 		sessionKeys = [
 			'cmCollection',
 			'cmOperation',
@@ -50,7 +52,7 @@ Template.autoformModals.rendered = ->
 			'cmTemplate',
 			'cmLabelClass',
 			'cmInputColClass',
-			'cmPlaceholder'
+			'cmPlaceholder',
 		]
 		delete Session.keys[key] for key in sessionKeys
 
@@ -160,3 +162,6 @@ Template.afModal.events
 			Session.set 'cmPrompt', 'Are you sure?'
 		else
 			Session.set 'cmPrompt', ''
+
+		$('#afModal').data('bs.modal').options.backdrop = t.data.backdrop or true
+		$('#afModal').modal 'show'
