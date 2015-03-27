@@ -26,7 +26,16 @@ collectionObj = (name) ->
 	, window
 
 Template.autoformModals.rendered = ->
+	onEscKey = (e) ->
+		if e.keyCode == 27
+			$('#afModal').modal 'hide'
+
+	$('#afModal').on 'shown.bs.modal', ->
+		$(window).bind 'keyup', onEscKey
+
 	$('#afModal').on 'hidden.bs.modal', ->
+		$(window).unbind 'keyup', onEscKey
+		
 		sessionKeys = [
 			'cmCollection',
 			'cmOperation',
