@@ -115,8 +115,8 @@ Template.afModal.events
 		Session.set 'cmButtonHtml', html
 		Session.set 'cmTitle', t.data.title or html
 		Session.set 'cmTemplate', t.data.template
-		Session.set 'cmLabelClass', t.data.labelClass
-		Session.set 'cmInputColClass', t.data.inputColClass
+		Session.set 'cmLabelClass', t.data.labelClass or t.data['label-class']
+		Session.set 'cmInputColClass', t.data.inputColClass or t.data['input-col-class']
 		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
 		Session.set 'cmFormId', t.data.formId
 
