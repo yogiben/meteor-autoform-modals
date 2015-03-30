@@ -60,10 +60,10 @@ Template.autoformModals.events
 	'click button:not(.close)': () ->
 		collection = Session.get 'cmCollection'
 		operation = Session.get 'cmOperation'
-		
+
 		if operation != 'insert'
 			_id = Session.get('cmDoc')._id
-			
+
 		if operation == 'remove'
 			collectionObj(collection).remove _id, (e)->
 				if e
@@ -86,10 +86,14 @@ helpers =
 		Session.get 'cmOmitFields'
 	cmButtonContent: () ->
 		Session.get 'cmButtonContent'
+	cmCloseButtonContent: () ->
+		Session.get 'cmCloseButtonContent'
 	cmTitle: () ->
 		Session.get 'cmTitle'
 	cmButtonClasses: () ->
 		Session.get 'cmButtonClasses'
+	cmCloseButtonClasses: () ->
+		Session.get 'cmCloseButtonClasses'
 	cmPrompt: () ->
 		Session.get 'cmPrompt'
 	cmTemplate: () ->
@@ -108,6 +112,8 @@ helpers =
 		StringTemplate.compile '{{{cmPrompt}}}', helpers
 	buttonContent: () ->
 		StringTemplate.compile '{{{cmButtonContent}}}', helpers
+	closeButtonContent: () ->
+		StringTemplate.compile '{{{cmCloseButtonContent}}}', helpers
 
 Template.autoformModals.helpers helpers
 
@@ -155,6 +161,9 @@ Template.afModal.events
 			Session.set 'cmButtonClasses', 'btn btn-danger'
 		else
 			Session.set 'cmButtonClasses', 'btn btn-primary'
+
+		Session.set 'cmCloseButtonContent', t.data.closeButtonContent or ''
+		Session.set 'cmCloseButtonClasses', t.data.closeButtonClasses or 'btn btn-default'
 
 		if t.data.prompt
 			Session.set 'cmPrompt', t.data.prompt
