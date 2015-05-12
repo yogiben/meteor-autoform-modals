@@ -69,6 +69,7 @@ inputColClass='col-sm-9'
 * ```placeholder``` set to true if you wish to use the schema label for the input placeholder.
 * ```formId``` defines id of the `quickForm` template. Useful when you want to set your custom autoform hooks.
 * ```backdrop``` disables or enables modal-backdrop. Defaults to true (modal can be dismissed by mouse click). To disable use 'static' value. (See more [here](http://getbootstrap.com/javascript/#modals-options))
+* ```meteormethod``` if specified meteor method will be called on submit. This has the same effect as passing `type="method"` and `meteormethod` to autoform template. See autoform docs for more details.
 
 ## Callbacks/Hooks ##
 It's possible to add your own autoform [callbacks/hooks](https://github.com/aldeed/meteor-autoform#callbackshooks) by setting the `formId`.

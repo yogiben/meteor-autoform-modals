@@ -106,6 +106,13 @@ helpers =
 		Session.get 'cmPlaceholder'
 	cmFormId: () ->
 		Session.get('cmFormId') or 'cmForm'
+	cmAutoformType: () ->
+		if Session.get 'cmMeteorMethod'
+			'method'
+		else
+			Session.get 'cmOperation'
+	cmMeteorMethod: () ->
+		Session.get 'cmMeteorMethod'
 	title: () ->
 		StringTemplate.compile '{{{cmTitle}}}', helpers
 	prompt: () ->
@@ -136,6 +143,7 @@ Template.afModal.events
 		Session.set 'cmInputColClass', t.data.inputColClass or t.data['input-col-class']
 		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
 		Session.set 'cmFormId', t.data.formId
+		Session.set 'cmMeteorMethod', t.data.meteormethod
 
 		if not _.contains registeredAutoFormHooks, t.data.formId
 			AutoForm.addHooks t.data.formId,

@@ -10,7 +10,7 @@
 					{{#if $and cmCollection cmOperation}}
 					<p>{{{prompt}}}</p>
 					{{#if $neq cmOperation 'remove'}}
-					{{> quickForm title=cmTitle id=cmFormId collection=cmCollection doc=cmDoc type=cmOperation buttonContent=cmButtonContent fields=cmFields omitFields=cmOmitFields template=cmTemplate label-class=cmLabelClass input-col-class=cmInputColClass buttonClasses=cmButtonClasses afFieldInput-placeholder=cmPlaceholder}}
+					{{> quickForm title=cmTitle id=cmFormId collection=cmCollection doc=cmDoc type=cmAutoformType buttonContent=cmButtonContent fields=cmFields omitFields=cmOmitFields template=cmTemplate label-class=cmLabelClass input-col-class=cmInputColClass buttonClasses=cmButtonClasses afFieldInput-placeholder=cmPlaceholder meteormethod=cmMeteorMethod}}
 					{{/if}}
 					{{/if}}
 				</div>
