@@ -1,19 +1,3 @@
-# Template.CollectionModalButton.events
-# 	'click .collection-modals': (e,t) ->
-# 		$('#collection-modal').modal('show')
-# 		collection = $(e.currentTarget).attr('collection')
-# 		operation = $(e.currentTarget).attr('operation')
-# 		_id = $(e.currentTarget).attr('doc')
-# 		omitFields = $(e.currentTarget).attr('omitFields')
-# 		doc = window[collection].findOne _id:_id
-# 		html = $(e.currentTarget).html()
-
-# 		Session.set('cmCollection',collection)
-# 		Session.set('cmOperation',operation)
-# 		Session.set('cmDoc',doc)
-# 		Session.set('cmButtonHtml',html)
-# 		Session.set('cmOmitFields',omitFields)
-
 registeredAutoFormHooks = ['cmForm']
 
 AutoForm.addHooks 'cmForm',
