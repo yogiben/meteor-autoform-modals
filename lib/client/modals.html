@@ -16,6 +16,9 @@
 				</div>
 				{{#if $eq cmOperation 'remove'}}
 				<div class="modal-footer">
+					{{#if closeButtonContent}}
+					<a role="button" href="#" data-dismiss="modal" class="{{cmCloseButtonClasses}}">{{{closeButtonContent}}}</a>
+					{{/if}}
 					<button class="{{cmButtonClasses}}">{{{buttonContent}}}</button>
 				</div>
 				{{/if}}

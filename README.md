@@ -51,9 +51,11 @@ If ```operation="update``` or ```operation="remove"``` you also need to set the 
 It is possible to customise the modals by adding additional attributes to the `afModal` template.
 * ```title``` will be the title of the modal (default to html of the button clicked)
 * ```buttonContent``` is the html content of the modals' button (default to html of the button clicked)
+* ```buttonClasses``` allows you to add different classes to the submit button. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
+* ```closeButtonContent``` is the html content of the modals' close button (not visible by default). Please note currently this feature is available on `operation="remove"` dialogs only.
+* ```closeButtonClasses``` allows you to add different classes to the close button.
 * ```fields``` is a comma separated list of the only fields that should be in the form. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
 * ```omitFields``` is a comma separated list of fields to omit. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
-* ```buttonClasses``` allows you to add different classes to the submit button. See the [autoform docs](https://github.com/aldeed/meteor-autoform).
 * ```prompt``` a paragraph appears above the form / delete button. Defaults to 'Are you sure?' on delete.
 * ```template``` any template string that autoform accepts. See the [autoform docs](https://github.com/aldeed/meteor-autoform#theme-templates)
 * ```labelClass``` defines a bootstrap class for use when the horizontal class is used, how many columns should the label take? For example:
