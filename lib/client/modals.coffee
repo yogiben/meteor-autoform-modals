@@ -1,5 +1,7 @@
 registeredAutoFormHooks = ['cmForm']
 
+cmOnSuccessCallback = null
+
 AutoForm.addHooks 'cmForm',
 	onSuccess: ->
 		$('#afModal').modal('hide')
@@ -54,6 +56,7 @@ Template.autoformModals.events
 					alert 'Sorry, this could not be deleted.'
 				else
 					$('#afModal').modal('hide')
+					cmOnSuccessCallback?()
 
 helpers =
 	cmCollection: () ->
@@ -128,6 +131,8 @@ Template.afModal.events
 		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
 		Session.set 'cmFormId', t.data.formId
 		Session.set 'cmMeteorMethod', t.data.meteormethod
+
+		cmOnSuccessCallback = t.data.onSuccess
 
 		if not _.contains registeredAutoFormHooks, t.data.formId
 			AutoForm.addHooks t.data.formId,
