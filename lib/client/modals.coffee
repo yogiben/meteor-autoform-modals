@@ -111,8 +111,6 @@ helpers =
 
 Template.autoformModals.helpers helpers
 
-Template.autoformModals.destroyed = -> $('body').unbind 'click'
-
 Template.afModal.events
 	'click *': (e, t) ->
 		e.preventDefault()
