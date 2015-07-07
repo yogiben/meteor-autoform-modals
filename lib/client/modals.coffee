@@ -42,6 +42,11 @@ Template.autoformModals.rendered = ->
 			'cmLabelClass',
 			'cmInputColClass',
 			'cmPlaceholder',
+			'cmFormId',
+			'cmAutoformType',
+			'cmMeteorMethod',
+			'cmCloseButtonContent',
+			'cmCloseButtonClasses'
 		]
 		delete Session.keys[key] for key in sessionKeys
 
