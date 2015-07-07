@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Create, update and delete collections with modals",
-  version: "0.3.6",
+  version: "0.3.7",
   git: "https://github.com/yogiben/meteor-autoform-modals"
 });
 
@@ -14,7 +14,7 @@ Package.on_use(function (api) {
     'session',
     'coffeescript',
     'ui',
-    'aldeed:autoform@5.3.0',
+    'aldeed:autoform@5.3.1',
     'raix:handlebar-helpers@0.2.4',
     'mpowaga:string-template@0.1.0'
   ], 'client');
