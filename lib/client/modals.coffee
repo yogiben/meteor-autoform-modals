@@ -1,4 +1,5 @@
 registeredAutoFormHooks = ['cmForm']
+defaultFormId = 'cmForm'
 
 cmOnSuccessCallback = null
 
@@ -23,6 +24,8 @@ Template.autoformModals.rendered = ->
 
 	$('#afModal').on 'hidden.bs.modal', ->
 		$(window).unbind 'keyup', onEscKey
+
+		AutoForm.resetForm(Session.get('cmFormId') or defaultFormId)
 
 		sessionKeys = [
 			'cmCollection',
@@ -92,7 +95,7 @@ helpers =
 	cmPlaceholder: () ->
 		Session.get 'cmPlaceholder'
 	cmFormId: () ->
-		Session.get('cmFormId') or 'cmForm'
+		Session.get('cmFormId') or defaultFormId
 	cmAutoformType: () ->
 		if Session.get 'cmMeteorMethod'
 			'method'
