@@ -1,4 +1,5 @@
 Package.describe({
+  name: 'yogiben:autoform-modals',
   summary: "Create, update and delete collections with modals",
   version: "0.3.7",
   git: "https://github.com/yogiben/meteor-autoform-modals"
@@ -10,7 +11,7 @@ Package.on_use(function (api) {
   api.use([
     'jquery',
     'templating',
-    'less',
+    'less@2.5.0_2',
     'session',
     'coffeescript',
     'ui',
