@@ -5,7 +5,7 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.versionsFrom('METEOR@1.0');
+  api.versionsFrom('METEOR@1.2.0.1');
 
   api.use([
     'jquery',
@@ -14,8 +14,8 @@ Package.on_use(function (api) {
     'session',
     'coffeescript',
     'ui',
-    'aldeed:autoform@5.3.1',
-    'raix:handlebar-helpers@0.2.4',
+    'aldeed:autoform@5.5.1',
+    'raix:handlebar-helpers@0.2.5',
     'mpowaga:string-template@0.1.0'
   ], 'client');
 
