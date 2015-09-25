@@ -106,6 +106,8 @@ helpers =
 			'method'
 		else
 			Session.get 'cmOperation'
+	cmModalDialogClass: () ->
+		Session.get 'cmModalDialogClass'
 	cmMeteorMethod: () ->
 		Session.get 'cmMeteorMethod'
 	title: () ->
@@ -137,6 +139,7 @@ Template.afModal.events
 		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
 		Session.set 'cmFormId', t.data.formId
 		Session.set 'cmMeteorMethod', t.data.meteormethod
+		Session.set 'cmModalDialogClass', t.data.dialogClass
 
 		cmOnSuccessCallback = t.data.onSuccess
 
