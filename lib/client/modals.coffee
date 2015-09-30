@@ -1,4 +1,5 @@
 registeredAutoFormHooks = ['cmForm']
+defaultFormId = 'cmForm'
 
 cmOnSuccessCallback = null
 
@@ -24,6 +25,8 @@ Template.autoformModals.rendered = ->
 	$('#afModal').on 'hidden.bs.modal', ->
 		$(window).unbind 'keyup', onEscKey
 
+		AutoForm.resetForm(Session.get('cmFormId') or defaultFormId)
+
 		sessionKeys = [
 			'cmCollection',
 			'cmOperation',
@@ -39,6 +42,11 @@ Template.autoformModals.rendered = ->
 			'cmLabelClass',
 			'cmInputColClass',
 			'cmPlaceholder',
+			'cmFormId',
+			'cmAutoformType',
+			'cmMeteorMethod',
+			'cmCloseButtonContent',
+			'cmCloseButtonClasses'
 		]
 		delete Session.keys[key] for key in sessionKeys
 
@@ -92,12 +100,14 @@ helpers =
 	cmPlaceholder: () ->
 		Session.get 'cmPlaceholder'
 	cmFormId: () ->
-		Session.get('cmFormId') or 'cmForm'
+		Session.get('cmFormId') or defaultFormId
 	cmAutoformType: () ->
 		if Session.get 'cmMeteorMethod'
 			'method'
 		else
 			Session.get 'cmOperation'
+	cmModalDialogClass: () ->
+		Session.get 'cmModalDialogClass'
 	cmMeteorMethod: () ->
 		Session.get 'cmMeteorMethod'
 	title: () ->
@@ -129,6 +139,7 @@ Template.afModal.events
 		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
 		Session.set 'cmFormId', t.data.formId
 		Session.set 'cmMeteorMethod', t.data.meteormethod
+		Session.set 'cmModalDialogClass', t.data.dialogClass
 
 		cmOnSuccessCallback = t.data.onSuccess
 
