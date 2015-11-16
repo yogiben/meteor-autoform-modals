@@ -150,7 +150,10 @@ Template.afModal.events
 			registeredAutoFormHooks.push t.data.formId
 
 		if t.data.doc
-			Session.set 'cmDoc', collectionObj(t.data.collection).findOne _id: t.data.doc
+			if typeof t.data.doc is "string"
+				Session.set 'cmDoc', collectionObj(t.data.collection).findOne _id: t.data.doc
+			else
+				Session.set 'cmDoc', t.data.doc
 
 		if t.data.buttonContent
 			Session.set 'cmButtonContent', t.data.buttonContent
