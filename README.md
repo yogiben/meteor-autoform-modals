@@ -12,6 +12,10 @@ Adds bootstrap modals to insert/update/remove docs from Meteor collections.
 
 ![alt tag](https://raw.githubusercontent.com/yogiben/meteor-autoform-modals/master/readme/1.png)
 
+Maintained by [Meteor Factory](https://meteorfactory.io). Professional Meteor development.
+
+[![Meteor autoform modals](https://raw.githubusercontent.com/yogiben/meteor-autoform-modals/master/readme/meteor-factory.jpg)](http://meteorfactory.io)
+
 ##Example Button Markup##
 ### Insert Example ###
 ```
