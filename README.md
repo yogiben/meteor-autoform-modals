@@ -49,7 +49,7 @@ Collection should be the name of the global collection object e.g. Posts.
 
 Operation can be ```insert```,```update``` or ```remove```.
 
-If ```operation="update``` or ```operation="remove"``` you also need to set the ```doc``` property to the _id of the document.
+If ```operation="update"``` or ```operation="remove"``` you also need to set the ```doc``` property to the ```_id``` of the document or to an object containing the document. This object must contain the ```_id``` of the document. If ```operation="insert"``` you can optionally set the ```doc``` property to an object containing some data you want to insert into the document (but you can't use the ```_id``` instead of the object and the object shouldn't contain the ```_id`` either).
 
 ## Customisation ##
 It is possible to customise the modals by adding additional attributes to the `afModal` template.
