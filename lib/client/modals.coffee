@@ -45,6 +45,7 @@ Template.autoformModals.rendered = ->
 			'cmFormId',
 			'cmAutoformType',
 			'cmMeteorMethod',
+			'cmType',
 			'cmCloseButtonContent',
 			'cmCloseButtonClasses'
 		]
@@ -100,9 +101,11 @@ helpers =
 	cmPlaceholder: () ->
 		Session.get 'cmPlaceholder'
 	cmFormId: () ->
-		Session.get('cmFormId') or defaultFormId
+		Session.get 'cmFormId' or defaultFormId
 	cmAutoformType: () ->
-		if Session.get 'cmMeteorMethod'
+		if Session.get 'cmType'
+			Session.get 'cmType'
+		else if Session.get 'cmMeteorMethod'
 			'method'
 		else
 			Session.get 'cmOperation'
@@ -141,6 +144,7 @@ Template.afModal.events
 		Session.set 'cmPlaceholder', if t.data.placeholder is true then 'schemaLabel' else ''
 		Session.set 'cmFormId', t.data.formId
 		Session.set 'cmMeteorMethod', t.data.meteormethod
+		Session.set 'cmType', t.data.type
 		Session.set 'cmModalDialogClass', t.data.dialogClass
 		Session.set 'cmModalContentClass', t.data.contentClass
 
