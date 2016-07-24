@@ -101,10 +101,10 @@ helpers =
 	cmPlaceholder: () ->
 		Session.get 'cmPlaceholder'
 	cmFormId: () ->
-		Session.get('cmFormId') or defaultFormId
+		Session.get 'cmFormId' or defaultFormId
 	cmAutoformType: () ->
-		if Session.get('cmType')
-			Session.get('cmType')
+		if Session.get 'cmType'
+			Session.get 'cmType'
 		else if Session.get 'cmMeteorMethod'
 			'method'
 		else
