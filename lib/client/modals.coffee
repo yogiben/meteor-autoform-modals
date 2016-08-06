@@ -108,6 +108,8 @@ helpers =
 			Session.get 'cmOperation'
 	cmModalDialogClass: () ->
 		Session.get 'cmModalDialogClass'
+	cmModalContentClass: () ->
+		Session.get 'cmModalContentClass'
 	cmMeteorMethod: () ->
 		Session.get 'cmMeteorMethod'
 	title: () ->
@@ -140,6 +142,7 @@ Template.afModal.events
 		Session.set 'cmFormId', t.data.formId
 		Session.set 'cmMeteorMethod', t.data.meteormethod
 		Session.set 'cmModalDialogClass', t.data.dialogClass
+		Session.set 'cmModalContentClass', t.data.contentClass
 
 		cmOnSuccessCallback = t.data.onSuccess
 
