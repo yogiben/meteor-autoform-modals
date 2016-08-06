@@ -1,5 +1,3 @@
-_ = require 'underscore'
-
 registeredAutoFormHooks = ['cmForm']
 defaultFormId = 'cmForm'
 
@@ -10,9 +8,7 @@ AutoForm.addHooks 'cmForm',
 		$('#afModal').modal('hide')
 
 collectionObj = (name) ->
-	name.split('.').reduce (o, x) ->
-		o[x]
-	, window
+	Meteor.Collection.get(name)
 
 Template.autoformModals.rendered = ->
 	$('#afModal').modal(show: false)

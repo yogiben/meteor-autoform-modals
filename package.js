@@ -14,6 +14,7 @@ Package.on_use(function (api) {
     'less@2.5.0_2',
     'session',
     'coffeescript',
+    'underscore',
     'ui',
     'aldeed:autoform@5.5.1',
     'raix:handlebar-helpers@0.2.5',
