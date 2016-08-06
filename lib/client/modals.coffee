@@ -1,3 +1,5 @@
+_ = require 'underscore'
+
 registeredAutoFormHooks = ['cmForm']
 defaultFormId = 'cmForm'
 
