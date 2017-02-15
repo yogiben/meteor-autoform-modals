@@ -35,6 +35,12 @@ Maintained by [Meteor Factory](https://meteorfactory.io). Professional Meteor de
   Delete post
 {{/afModal}}
 ```
+or
+```
+{{#afModal class="btn btn-danger" collection="Posts" operation="remove" doc=_id}}
+  Delete post
+{{/afModal}}
+```
 ### Example with customisation ###
 ```
 {{#afModal class="btn btn-primary" collection="Posts" omitFields="createdAt,owner,upvotes" operation="update" buttonContent="Update Challenger" prompt="Use this form to update your doc" title="Update your great content" buttonClasses="btn-success"}}

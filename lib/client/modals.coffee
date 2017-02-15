@@ -154,6 +154,9 @@ Template.afModal.events
 
 		if t.data.doc
 			Session.set 'cmDoc', collectionObj(t.data.collection).findOne _id: t.data.doc
+		else
+			if Session.get 'cmDoc'
+				delete Session.keys['cmDoc']	
 
 		if t.data.buttonContent
 			Session.set 'cmButtonContent', t.data.buttonContent
